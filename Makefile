@@ -27,8 +27,8 @@ bonus: $(NAME)
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c
+	$(CC) $(INCLUDE) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)
