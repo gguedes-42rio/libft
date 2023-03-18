@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 11:43:07 by gguedes           #+#    #+#             */
-/*   Updated: 2023/03/18 15:41:52 by gguedes          ###   ########.fr       */
+/*   Updated: 2023/03/18 18:54:54 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ size_t	ft_strlcpy(char *dst, char const *src, size_t size);
 size_t	ft_strlen(char const *str);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(char const *s1, char const *s2, size_t n);
-char	*ft_strnstr(char const *big, char const *little, size_t len);
+char	*ft_strnstr(char const *s1, char const *s2, size_t len);
 char	*ft_strrchr(char const *str, int c);
 char	*ft_strtrim(char const *str, char const *set);
 char	*ft_substr(char const *str, unsigned int start, size_t len);

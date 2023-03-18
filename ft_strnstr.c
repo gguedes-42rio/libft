@@ -6,33 +6,27 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 11:08:21 by gguedes           #+#    #+#             */
-/*   Updated: 2023/03/12 17:30:30 by gguedes          ###   ########.fr       */
+/*   Updated: 2023/03/18 18:59:45 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(char const *big, char const *little, size_t len)
+char	*ft_strnstr(char const *s1, char const *s2, size_t len)
 {
-	size_t	i;
-	size_t	j;
+	size_t	slen;
 
-	if (big == NULL || little == NULL)
+	if (s1 == NULL)
 		return (NULL);
-	i = 0;
-	while (big[i] && i < len)
+	if (s2 == NULL || *s2 == '\0')
+		return ((char *)s1);
+	slen = ft_strlen(s2);
+	while (*s1 && slen <= len)
 	{
-		j = 0;
-		while (big[i + j] && little[j]
-			&& big[i + j] == little[j] && i + j < len)
-		{
-			if (little[j + 1] == '\0')
-				return ((char *)big + i);
-			j++;
-		}
-		i++;
+		if (ft_memcmp(s1, s2, slen) == 0)
+			return ((char *)s1);
+		len--;
+		s1++;
 	}
-	if (little[0] == '\0')
-		return ((char *)big);
 	return (NULL);
 }
