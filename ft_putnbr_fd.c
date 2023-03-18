@@ -6,26 +6,26 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:58:16 by gguedes           #+#    #+#             */
-/*   Updated: 2023/03/12 16:56:30 by gguedes          ###   ########.fr       */
+/*   Updated: 2023/03/18 15:42:21 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int num, int fd)
 {
-	if (n == INT_MIN)
+	if (num == INT_MIN)
 	{
 		ft_putstr_fd("-2147483648", fd);
 		return ;
 	}
-	if (n < 0)
+	if (num < 0)
 	{
 		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
+		ft_putnbr_fd(-num, fd);
 		return ;
 	}
-	else if (n > 9)
-		ft_putnbr_fd(n / 10, fd);
-	ft_putchar_fd((n % 10) + '0', fd);
+	else if (num > 9)
+		ft_putnbr_fd(num / 10, fd);
+	ft_putchar_fd((num % 10) + '0', fd);
 }

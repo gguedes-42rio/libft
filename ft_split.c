@@ -6,27 +6,27 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:52:52 by gguedes           #+#    #+#             */
-/*   Updated: 2023/03/12 16:38:50 by gguedes          ###   ########.fr       */
+/*   Updated: 2023/03/18 15:37:16 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	subs(char const *s, char c)
+static int	subs(char const *str, char c)
 {
 	int	i;
 
-	if (s == NULL)
+	if (str == NULL)
 		return (0);
 	i = 0;
-	while (*s)
+	while (*str)
 	{
-		if (*s != c)
+		if (*str != c)
 			i++;
-		while (*s && *s != c)
-			s++;
-		while (*s && *s == c)
-			s++;
+		while (*str && *str != c)
+			str++;
+		while (*str && *str == c)
+			str++;
 	}
 	return (i);
 }
@@ -44,29 +44,29 @@ static void	*free_split(char **split)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *str, char c)
 {
 	int		i;
 	int		len;
 	int		size;
 	char	**split;
 
-	if (s == NULL)
+	if (str == NULL)
 		return (NULL);
-	size = subs(s, c);
+	size = subs(str, c);
 	split = malloc(sizeof(char *) * (size + 1));
 	if (split == NULL)
 		return (NULL);
 	i = 0;
 	while (i < size)
 	{
-		while (*s && *s == c)
-			s++;
-		len = ft_strlen(s) - ft_strlen(ft_strchr(s, c));
-		split[i] = ft_substr(s, 0, len);
+		while (*str && *str == c)
+			str++;
+		len = ft_strlen(str) - ft_strlen(ft_strchr(str, c));
+		split[i] = ft_substr(str, 0, len);
 		if (split[i] == NULL)
 			return (free_split(split));
-		s += len;
+		str += len;
 		i++;
 	}
 	split[i] = NULL;
