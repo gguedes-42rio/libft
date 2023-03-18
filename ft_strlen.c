@@ -6,20 +6,20 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 11:42:55 by gguedes           #+#    #+#             */
-/*   Updated: 2023/03/12 17:30:10 by gguedes          ###   ########.fr       */
+/*   Updated: 2023/03/18 15:36:43 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char const *s)
+size_t	ft_strlen(char const *str)
 {
 	size_t	i;
 
-	if (s == NULL)
+	if (str == NULL)
 		return (0);
 	i = 0;
-	while (s[i])
+	while (str[i])
 		i++;
 	return (i);
 }
