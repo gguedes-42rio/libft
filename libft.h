@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 11:43:07 by gguedes           #+#    #+#             */
-/*   Updated: 2023/03/31 11:10:20 by gguedes          ###   ########.fr       */
+/*   Updated: 2023/03/31 14:57:39 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
+# define BUFFER_SIZE 4096
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -53,6 +54,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(const char *str, int fd);
 void	ft_putnbr_fd(int num, int fd);
 void	ft_putstr_fd(const char *str, int fd);
+char	*ft_read_file(int fd);
 char	**ft_split(const char *str, char c);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(const char *str);
