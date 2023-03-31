@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 22:12:35 by gguedes           #+#    #+#             */
-/*   Updated: 2023/03/12 15:45:33 by gguedes          ###   ########.fr       */
+/*   Updated: 2023/03/29 18:03:49 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new;
 	t_list	*new_lst;
 
-	if (f == NULL || del == NULL)
-		return (NULL);
 	new_lst = NULL;
 	while (lst)
 	{

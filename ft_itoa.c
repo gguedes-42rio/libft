@@ -6,15 +6,15 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:26:45 by gguedes           #+#    #+#             */
-/*   Updated: 2023/03/16 21:33:37 by gguedes          ###   ########.fr       */
+/*   Updated: 2023/03/31 12:20:50 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	digits(int num)
+static size_t	digits(int num)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	if (num < 0)
@@ -29,7 +29,7 @@ static int	digits(int num)
 
 char	*ft_itoa(int num)
 {
-	int		len;
+	size_t	len;
 	char	*new_str;
 
 	if (num == 0)

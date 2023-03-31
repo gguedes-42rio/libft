@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_free_matrix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 22:08:05 by gguedes           #+#    #+#             */
-/*   Updated: 2023/03/29 18:02:41 by gguedes          ###   ########.fr       */
+/*   Created: 2023/03/29 18:42:49 by gguedes           #+#    #+#             */
+/*   Updated: 2023/03/31 11:22:30 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_free_matrix(char **matrix)
 {
-	while (lst)
-	{
-		f(lst->content);
-		lst = lst->next;
+	int	i;
+
+	if (matrix == NULL)
+		return ;
+	i = 0;
+	while (matrix[i])
+	{		
+		free(matrix[i]);
+		i++;
 	}
+	free(matrix);
 }

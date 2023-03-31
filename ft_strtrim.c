@@ -6,19 +6,17 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:15:54 by gguedes           #+#    #+#             */
-/*   Updated: 2023/03/18 15:36:17 by gguedes          ###   ########.fr       */
+/*   Updated: 2023/03/31 12:27:12 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *str, char const *set)
+char	*ft_strtrim(const char *str, const char *set)
 {
-	int		len;
+	size_t	len;
 	char	*new_str;
 
-	if (str == NULL)
-		return (NULL);
 	if (set == NULL)
 		return (ft_strdup(str));
 	while (*str && ft_strchr(set, *str))

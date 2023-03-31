@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 12:35:27 by gguedes           #+#    #+#             */
-/*   Updated: 2022/12/05 12:33:55 by gguedes          ###   ########.fr       */
+/*   Updated: 2023/03/31 12:16:23 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(s, 0, n);
+	char	*chr_s;
+
+	chr_s = s;
+	while (n--)
+		chr_s[n] = 0;
 }

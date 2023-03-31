@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 12:12:29 by gguedes           #+#    #+#             */
-/*   Updated: 2023/03/18 15:37:05 by gguedes          ###   ########.fr       */
+/*   Updated: 2023/03/31 12:24:57 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	ft_striteri(char *str, void (*f)(unsigned int, char*))
 {
-	int	i;
+	size_t	i;
 
-	if (str == NULL || f == NULL)
-		return ;
-	i = -1;
-	while (str[++i])
-		f(i, &str[i]);
+	i = 0;
+	while (str[i])
+	{
+		f(i, str + i);
+		i++;
+	}
 }

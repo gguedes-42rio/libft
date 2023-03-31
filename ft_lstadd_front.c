@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 13:36:35 by gguedes           #+#    #+#             */
-/*   Updated: 2023/03/12 15:36:06 by gguedes          ###   ########.fr       */
+/*   Updated: 2023/03/29 18:02:11 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (lst == NULL || new == NULL)
+	if (new == NULL)
 		return ;
 	new->next = *lst;
 	*lst = new;

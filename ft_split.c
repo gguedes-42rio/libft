@@ -6,18 +6,16 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:52:52 by gguedes           #+#    #+#             */
-/*   Updated: 2023/03/18 15:37:16 by gguedes          ###   ########.fr       */
+/*   Updated: 2023/03/31 12:44:16 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	subs(char const *str, char c)
+static size_t	subs(const char *str, char c)
 {
-	int	i;
+	size_t	i;
 
-	if (str == NULL)
-		return (0);
 	i = 0;
 	while (*str)
 	{
@@ -31,28 +29,23 @@ static int	subs(char const *str, char c)
 	return (i);
 }
 
-static void	*free_split(char **split)
+static size_t	word_len(const char *str, char c)
 {
-	int	i;
+	size_t	len;
 
-	if (split == NULL)
-		return (NULL);
-	i = -1;
-	while (split[++i])
-		free(split[i]);
-	free(split);
-	return (NULL);
+	len = 0;
+	while (str[len] && str[len] != c)
+		len++;
+	return (len);
 }
 
-char	**ft_split(char const *str, char c)
+char	**ft_split(const char *str, char c)
 {
-	int		i;
-	int		len;
-	int		size;
+	size_t	i;
+	size_t	len;
+	size_t	size;
 	char	**split;
 
-	if (str == NULL)
-		return (NULL);
 	size = subs(str, c);
 	split = malloc(sizeof(char *) * (size + 1));
 	if (split == NULL)
@@ -62,10 +55,10 @@ char	**ft_split(char const *str, char c)
 	{
 		while (*str && *str == c)
 			str++;
-		len = ft_strlen(str) - ft_strlen(ft_strchr(str, c));
+		len = word_len(str, c);
 		split[i] = ft_substr(str, 0, len);
 		if (split[i] == NULL)
-			return (free_split(split));
+			return (ft_free_matrix(split), NULL);
 		str += len;
 		i++;
 	}
