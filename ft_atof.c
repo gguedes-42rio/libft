@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/15 12:54:16 by gguedes           #+#    #+#             */
-/*   Updated: 2023/04/03 00:08:18 by gguedes          ###   ########.fr       */
+/*   Created: 2023/04/02 16:30:55 by gguedes           #+#    #+#             */
+/*   Updated: 2023/04/02 17:36:05 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+static double	get_part(const char *str)
 {
-	int	num;
-	int	negative;
+	double	part;
 
-	num = 0;
+	part = 0;
+	while (ft_isdigit(*str))
+	{
+		part = part * 10 + *str - '0';
+		str++;
+	}
+	return (part);
+}
+
+double	ft_atof(const char *str)
+{
+	double	int_part;
+	double	float_part;
+	int		len;
+	int		negative;
+
 	negative = 1;
 	while (ft_isspace(*str))
 		str++;
@@ -25,10 +39,17 @@ int	ft_atoi(const char *str)
 		negative = -1;
 	if (*str == '-' || *str == '+')
 		str++;
+	int_part = get_part(str);
 	while (ft_isdigit(*str))
-	{
-		num = num * 10 + *str - '0';
 		str++;
-	}
-	return (num * negative);
+	if (*str != '.' || !ft_isdigit(str[1]))
+		return (int_part);
+	str++;
+	float_part = get_part(str);
+	len = 0;
+	while (ft_isdigit(str[len]))
+		len++;
+	while (len--)
+		float_part /= 10;
+	return ((int_part + float_part) * negative);
 }

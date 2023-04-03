@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/15 12:54:16 by gguedes           #+#    #+#             */
-/*   Updated: 2023/04/03 00:08:18 by gguedes          ###   ########.fr       */
+/*   Created: 2023/04/02 16:57:38 by gguedes           #+#    #+#             */
+/*   Updated: 2023/04/02 16:58:31 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int	ft_isspace(int c)
 {
-	int	num;
-	int	negative;
-
-	num = 0;
-	negative = 1;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '-')
-		negative = -1;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (ft_isdigit(*str))
-	{
-		num = num * 10 + *str - '0';
-		str++;
-	}
-	return (num * negative);
+	if (c == 32 || (c >= 9 && c <= 13))
+		return (1);
+	return (0);
 }
