@@ -58,6 +58,7 @@ void	ft_putendl_fd(const char *str, int fd);
 void	ft_putnbr_fd(int num, int fd);
 void	ft_putstr_fd(const char *str, int fd);
 char	*ft_read_file(int fd);
+char	**ft_split_lines(const char *str, char c);
 char	**ft_split(const char *str, char c);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(const char *str);
