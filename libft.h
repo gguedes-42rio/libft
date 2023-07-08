@@ -6,7 +6,7 @@
 /*   By: gguedes <gguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 11:43:07 by gguedes           #+#    #+#             */
-/*   Updated: 2023/04/02 23:45:46 by gguedes          ###   ########.fr       */
+/*   Updated: 2023/07/08 18:14:29 by gguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ char	*ft_strtrim(const char *str, const char *set);
 char	*ft_substr(const char *str, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+char	*ft_xtoa(int num);
 
 #endif // LIBFT_H
