@@ -20,7 +20,7 @@ void	ft_free_matrix(char **matrix)
 		return ;
 	i = 0;
 	while (matrix[i])
-	{		
+	{
 		free(matrix[i]);
 		i++;
 	}

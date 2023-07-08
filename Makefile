@@ -1,6 +1,6 @@
 NAME	=	libft.a
 
-SRC		=	ft_atof.c			ft_atoi.c			ft_bzero.c			ft_calloc.c			ft_free_matrix.c	\
+SRCS	=	ft_atof.c			ft_atoi.c			ft_bzero.c			ft_calloc.c			ft_free_matrix.c	\
 			ft_isalnum.c		ft_isalpha.c		ft_isascii.c		ft_isdigit.c		ft_isprint.c		\
 			ft_isspace.c		ft_itoa.c			ft_lstadd_back.c	ft_lstadd_front.c	ft_lstclear.c		\
 			ft_lstdelone.c		ft_lstiter.c		ft_lstlast.c		ft_lstmap.c			ft_lstnew.c			\
@@ -12,11 +12,9 @@ SRC		=	ft_atof.c			ft_atoi.c			ft_bzero.c			ft_calloc.c			ft_free_matrix.c	\
 			ft_strtrim.c		ft_substr.c			ft_tolower.c		ft_toupper.c							\
 
 
-OBJ		=	$(SRC:.c=.o)
+OBJS	=	$(SRC:.c=.o)
 
-INCLUDE	=	-I.
-
-CC		=	gcc
+CC		=	gcc -O3
 
 CFLAGS	=	-Wall -Werror -Wextra
 
@@ -24,20 +22,18 @@ RM		=	rm -f
 
 all: $(NAME)
 
-bonus: $(NAME)
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
-
-%.o: %.c ./libft.h
-	$(CC) $(INCLUDE) $(CFLAGS) -c $< -o $@
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJS)
 
-fclean: clean
-	$(RM) $(NAME)
+fclean:
+	$(RM) $(OBJS) $(NAME)
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
