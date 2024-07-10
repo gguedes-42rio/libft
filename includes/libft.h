@@ -13,8 +13,6 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define BUFFER_SIZE 4096
-
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -58,9 +56,8 @@ size_t	ft_putchar_fd(char c, int fd);
 size_t	ft_putendl_fd(const char *str, int fd);
 size_t	ft_putnbr_fd(int num, int fd);
 size_t	ft_putstr_fd(const char *str, int fd);
-char	*ft_read_file(int fd);
-char	**ft_split_lines(const char *str, char c);
 char	**ft_split(const char *str, char c);
+char	*ft_strappend(char *s1, char *s2);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(const char *str);
 void	ft_striteri(char *str, void (*f)(unsigned int, char*));
