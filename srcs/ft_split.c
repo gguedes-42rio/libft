@@ -58,7 +58,7 @@ char	**ft_split(const char *str, char c)
 		len = word_len(str, c);
 		split[i] = ft_substr(str, 0, len);
 		if (split[i] == NULL)
-			return (ft_free_matrix(split), NULL);
+			return (ft_free_matrix((void **)split), NULL);
 		str += len;
 		i++;
 	}
