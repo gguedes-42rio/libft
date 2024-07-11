@@ -10,6 +10,7 @@ CFLAGS = -O3 -Wall -Werror -Wextra -I includes/
 
 RM     = rm -f
 
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -21,8 +22,8 @@ $(NAME): $(OBJS)
 clean:
 	$(RM) $(OBJS)
 
-fclean:
-	$(RM) $(OBJS) $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 
 re: fclean all
 
